@@ -14,7 +14,7 @@
 
 @implementation ViewController
 
-
+NSString *const vid = @"j052796psa6";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,7 +26,10 @@
     UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, [[UIScreen mainScreen] bounds].size.height - 60, [[UIScreen mainScreen] bounds].size.width, 60)];
     [imgView setBackgroundColor:[UIColor grayColor]];
     
-    NSString *urlAddress = @"https://v.qq.com/iframe/player.html?vid=j052796psa6&tiny=1&auto=0";
+    NSString *urlAddress = @"https://v.qq.com/iframe/player.html?vid=";
+    urlAddress = [urlAddress stringByAppendingString:vid];
+    urlAddress = [urlAddress stringByAppendingString:@"&tiny=1&auto=0"];
+
     NSURL *url = [NSURL URLWithString:urlAddress];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [webView loadRequest:requestObj];
